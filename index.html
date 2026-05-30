@@ -1,0 +1,497 @@
+`html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saras Poli Bhaji Kendra</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        .stagger-1 { animation-delay: 100ms; }
+        .stagger-2 { animation-delay: 200ms; }
+        .stagger-3 { animation-delay: 300ms; }
+        
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+        
+        /* Toggle Switch CSS */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #10B981;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #10B981;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="bg-emerald-600 text-white p-2 rounded-xl">
+                    <i class="fa-solid fa-hat-chef text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-emerald-800 leading-tight">Saras Poli Bhaji Kendra</h1>
+                    <p class="text-xs text-emerald-600 font-medium">à¤¸à¤°à¤¸ à¤ªà¥à¤³à¥à¤­à¤¾à¤à¥ à¤à¥à¤à¤¦à¥à¤°</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <div id="adminBadge" class="hidden items-center gap-2 bg-emerald-100 text-emerald-800 px-3 py-1.5 rounded-full text-sm font-semibold">
+                    <i class="fa-solid fa-lock text-xs"></i> Admin Mode
+                </div>
+                <a href="#order-section" class="relative bg-emerald-50 text-emerald-700 p-2.5 rounded-full hover:bg-emerald-100 transition-colors">
+                    <i class="fa-solid fa-bag-shopping text-xl"></i>
+                    <span id="cartCountBadge" class="hidden absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-emerald-800 text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 to-transparent opacity-80"></div>
+        
+        <div class="relative max-w-6xl mx-auto px-4 py-16 md:py-24 flex flex-col items-center text-center animate-fade-in-up">
+            <span class="bg-emerald-500/30 border border-emerald-400/50 text-emerald-100 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-4 backdrop-blur-sm">
+                Authentic Maharashtrian Taste
+            </span>
+            <h2 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
+                Gharche Jevan, <br/><span class="text-emerald-300">Ata Baher Pan!</span>
+            </h2>
+            <p class="text-emerald-100 text-lg max-w-2xl mx-auto mb-8 font-light">
+                Experience the comfort of home-style cooking with our daily fresh tiffins, hearty thalis, and traditional Maharashtrian delicacies. 
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-center text-emerald-50 text-sm">
+                <div class="flex items-center gap-2 bg-black/20 px-4 py-2 rounded-full backdrop-blur-md">
+                    <i class="fa-solid fa-location-dot text-emerald-400"></i>
+                    <span>Shop 4, Atriya Bldg, Brahmand, Thane (W)</span>
+                </div>
+                <div class="flex gap-4">
+                    <a href="tel:8108674763" class="flex items-center gap-2 bg-black/20 px-4 py-2 rounded-full backdrop-blur-md hover:bg-black/30 transition">
+                        <i class="fa-solid fa-phone text-emerald-400"></i><span>8108674763</span>
+                    </a>
+                    <a href="tel:8169289466" class="flex items-center gap-2 bg-black/20 px-4 py-2 rounded-full backdrop-blur-md hover:bg-black/30 transition">
+                        <i class="fa-solid fa-phone text-emerald-400"></i><span>8169289466</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 w-full max-w-4xl animate-fade-in-up stagger-1">
+                <div class="bg-amber-50 p-4 rounded-2xl flex flex-col items-center text-center transition-transform hover:scale-105 border border-white/50">
+                    <i class="fa-solid fa-mug-hot text-2xl mb-2 text-amber-600"></i>
+                    <h3 class="font-semibold text-gray-800 text-sm">Breakfast Available</h3>
+                    <p class="text-xs text-gray-600 mt-1">à¤¬à¥à¤°à¥à¤à¤«à¤¾à¤¸à¥à¤ à¤à¤ªà¤²à¤¬à¥à¤§</p>
+                </div>
+                <div class="bg-emerald-50 p-4 rounded-2xl flex flex-col items-center text-center transition-transform hover:scale-105 border border-white/50">
+                    <i class="fa-solid fa-hat-chef text-2xl mb-2 text-emerald-600"></i>
+                    <h3 class="font-semibold text-gray-800 text-sm">Tiffin Service</h3>
+                    <p class="text-xs text-gray-600 mt-1">à¤à¤¿à¤«à¥à¤¨ à¤¸à¤°à¥à¤µà¤¿à¤¸ à¤à¤ªà¤²à¤¬à¥à¤§</p>
+                </div>
+                <div class="bg-green-50 p-4 rounded-2xl flex flex-col items-center text-center transition-transform hover:scale-105 border border-white/50">
+                    <i class="fa-solid fa-leaf text-2xl mb-2 text-green-600"></i>
+                    <h3 class="font-semibold text-gray-800 text-sm">Healthy & Tasty</h3>
+                    <p class="text-xs text-gray-600 mt-1">à¤¹à¥à¤²à¥à¤¦à¥ à¥²à¤¨à¥à¤¡ à¤à¥à¤¸à¥à¤à¥ à¤«à¥à¤¡</p>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-2xl flex flex-col items-center text-center transition-transform hover:scale-105 border border-white/50">
+                    <i class="fa-solid fa-circle-check text-2xl mb-2 text-blue-600"></i>
+                    <h3 class="font-semibold text-gray-800 text-sm">Catering Orders</h3>
+                    <p class="text-xs text-gray-600 mt-1">à¤à¤°à¥à¤¡à¤° à¤¸à¥à¤µà¤¿à¤à¤¾à¤°à¤²à¥ à¤à¤¾à¤à¤²</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="max-w-6xl mx-auto px-4 py-16">
+        <div class="flex justify-between items-end mb-10 border-b-2 border-emerald-100 pb-4">
+            <div>
+                <h2 class="text-3xl font-bold text-gray-800">Daily Menu</h2>
+                <p class="text-gray-500 mt-1">Freshly prepared everyday</p>
+            </div>
+            
+            <div id="adminControls" class="hidden flex gap-3">
+                <button id="saveMenuBtn" class="hidden items-center gap-2 bg-emerald-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-emerald-700 transition shadow-md">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Changes
+                </button>
+                <button id="editMenuBtn" class="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition shadow-md">
+                    <i class="fa-solid fa-pen-to-square"></i> Edit Menu
+                </button>
+            </div>
+        </div>
+
+        <div id="menuContainer" class="space-y-12 animate-fade-in-up stagger-2">
+            <!-- Menu categories will be injected here via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order-section" class="bg-white py-16 border-t border-gray-200">
+        <div class="max-w-4xl mx-auto px-4 animate-fade-in-up stagger-3">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-800">Complete Your Order</h2>
+                <p class="text-gray-500 mt-2">Fill in your details and place order via WhatsApp</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Order Summary -->
+                <div class="bg-gray-50 p-6 rounded-3xl border border-gray-100 shadow-inner h-fit">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-emerald-600"></i> Order Summary
+                    </h3>
+                    
+                    <div id="emptyCartMessage" class="text-center py-10 text-gray-400">
+                        <i class="fa-solid fa-basket-shopping text-5xl mx-auto mb-4 opacity-50"></i>
+                        <p>Your cart is empty.</p>
+                        <p class="text-sm mt-2">Scroll up to add some tasty items!</p>
+                    </div>
+
+                    <div id="cartItemsContainer" class="hidden space-y-4">
+                        <!-- Cart items injected here -->
+                    </div>
+                    
+                    <div id="cartTotalSection" class="hidden border-t border-gray-200 mt-6 pt-4 flex justify-between items-center text-lg">
+                        <span class="font-bold text-gray-600">Total Amount:</span>
+                        <span class="font-extrabold text-2xl text-emerald-600" id="cartTotalAmount">â¹0</span>
+                    </div>
+                </div>
+
+                <!-- Checkout Form -->
+                <form id="checkoutForm" class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Full Name</label>
+                        <input type="text" id="custName" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-500 outline-none transition" placeholder="Rahul Sharma">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Phone Number</label>
+                        <input type="tel" id="custPhone" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-500 outline-none transition" placeholder="9876543210">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-1">Delivery Address</label>
+                        <textarea id="custAddress" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-500 outline-none transition" rows="3" placeholder="Flat No, Building, Area, Brahmand..."></textarea>
+                    </div>
+                    
+                    <button type="submit" id="submitOrderBtn" disabled class="w-full py-4 rounded-xl text-lg font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-none bg-gray-300 text-gray-500 cursor-not-allowed">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> Place Order via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-10 relative">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h4 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-hat-chef text-emerald-500"></i> Saras Poli Bhaji Kendra
+                </h4>
+                <p class="text-sm leading-relaxed">Serving authentic, healthy, and delicious Maharashtrian meals to the Brahmand community since 2012.</p>
+            </div>
+            <div>
+                <h4 class="text-white text-lg font-bold mb-4">Contact</h4>
+                <p class="text-sm mb-2"><i class="fa-solid fa-location-dot w-5"></i> Shop 4, Atriya Bldg, Brahmand, Thane</p>
+                <p class="text-sm mb-2"><i class="fa-solid fa-phone w-5"></i> 8108674763 / 8169289466</p>
+            </div>
+            <div>
+                <h4 class="text-white text-lg font-bold mb-4">Hours</h4>
+                <p class="text-sm mb-1">Morning: 8:00 AM - 2:00 PM</p>
+                <p class="text-sm">Evening: 6:00 PM - 10:00 PM</p>
+            </div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto px-4 mt-10 pt-6 border-t border-gray-800 flex justify-between items-center">
+            <p class="text-xs">&copy; 2026 Saras Poli Bhaji Kendra. All rights reserved.</p>
+            <button id="adminLoginTrigger" class="opacity-20 hover:opacity-100 transition-opacity p-2 text-gray-500 hover:text-emerald-400" title="Admin Access">
+                <i class="fa-solid fa-lock"></i>
+            </button>
+        </div>
+    </footer>
+
+    <!-- Admin Login Modal -->
+    <div id="adminModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl relative animate-fade-in-up">
+            <button id="closeModalBtn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fa-solid fa-lock text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-center text-gray-800 mb-2">Admin Access</h3>
+            <p class="text-center text-sm text-gray-500 mb-6">Enter password to modify the daily menu.</p>
+            
+            <form id="adminLoginForm">
+                <div class="mb-4">
+                    <input type="password" id="adminPwd" placeholder="Enter Password" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-emerald-500 focus:ring-2 outline-none text-center tracking-widest bg-gray-50" autofocus>
+                    <p id="loginError" class="text-red-500 text-xs text-center mt-2 hidden">Incorrect password</p>
+                </div>
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition-all shadow-md">
+                    Unlock Dashboard
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Application Logic -->
+    <script>
+        // Default Data
+        const defaultMenu = [
+            { id: 'cat1', category: 'Breakfast (à¤¬à¥à¤°à¥à¤à¤«à¤¾à¤¸à¥à¤)', items: [
+                { id: 'b1', name: 'Kande Pohe (à¤à¤¾à¤à¤¦à¥ à¤ªà¥à¤¹à¥)', desc: 'Traditional Maharashtrian flattened rice', price: 40, available: true, img: 'https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?auto=format&fit=crop&w=300&q=80' },
+                { id: 'b2', name: 'Misal Pav (à¤®à¤¿à¤¸à¤³ à¤ªà¤¾à¤µ)', desc: 'Spicy sprouted moth bean curry with pav', price: 70, available: true, img: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=300&q=80' },
+                { id: 'b3', name: 'Upma (à¤à¤ªà¤®à¤¾)', desc: 'Savory semolina porridge cooked with veggies', price: 40, available: true, img: 'https://images.unsplash.com/photo-1589301760014-d929f39ce9b1?auto=format&fit=crop&w=300&q=80' }
+            ]},
+            { id: 'cat2', category: 'Lunch/Dinner Thalis (à¤¥à¤¾à¤³à¥)', items: [
+                { id: 't1', name: 'Mini Veg Thali', desc: '2 Poli, 1 Bhaji, Dal, Rice, Pickle', price: 90, available: true, img: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=300&q=80' },
+                { id: 't2', name: 'Special Maharashtrian Thali', desc: '3 Poli, 2 Bhaji, Varan Bhaat, Sweet, Papad, Salad', price: 150, available: true, img: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=300&q=80' }
+            ]},
+            { id: 'cat3', category: 'Extra Polis & Bhajis (à¤ªà¥à¤³à¥ à¤à¤£à¤¿ à¤­à¤¾à¤à¥)', items: [
+                { id: 'e1', name: 'Ghadichi Poli (Chapati)', desc: 'Soft layered whole wheat flatbread', price: 10, available: true, img: 'https://images.unsplash.com/photo-1565557618462-2ca8b1fa4e00?auto=format&fit=crop&w=300&q=80' },
+                { id: 'e2', name: 'Jowar Bhakri', desc: 'Healthy traditional sorghum flatbread', price: 20, available: true, img: 'https://images.unsplash.com/photo-1601050690597-df0568a70950?auto=format&fit=crop&w=300&q=80' },
+                { id: 'e3', name: 'Daily Sukhi Bhaji', desc: 'Dry vegetable of the day (e.g., Batata, Kobi)', price: 40, available: true, img: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=300&q=80' },
+                { id: 'e4', name: 'Daily Patal Bhaji', desc: 'Gravy vegetable of the day (e.g., Usal, Matki)', price: 50, available: true, img: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=300&q=80' }
+            ]}
+        ];
+
+        // State
+        let menuData = JSON.parse(localStorage.getItem('sarasMenuHTML')) || defaultMenu;
+        if (!localStorage.getItem('sarasMenuHTML')) localStorage.setItem('sarasMenuHTML', JSON.stringify(defaultMenu));
+        
+        let cart = {};
+        let isAdmin = false;
+        let isEditing = false;
+
+        // Elements
+        const menuContainer = document.getElementById('menuContainer');
+        const cartItemsContainer = document.getElementById('cartItemsContainer');
+        const emptyCartMessage = document.getElementById('emptyCartMessage');
+        const cartTotalSection = document.getElementById('cartTotalSection');
+        const cartTotalAmount = document.getElementById('cartTotalAmount');
+        const cartCountBadge = document.getElementById('cartCountBadge');
+        const submitOrderBtn = document.getElementById('submitOrderBtn');
+        const adminControls = document.getElementById('adminControls');
+        const adminBadge = document.getElementById('adminBadge');
+
+        // Initial Render
+        renderMenu();
+
+        // --- RENDER MENU LOGIC ---
+        function renderMenu() {
+            menuContainer.innerHTML = '';
+            menuData.forEach((category, cIndex) => {
+                const catDiv = document.createElement('div');
+                catDiv.innerHTML = `<h3 class="text-xl font-bold text-emerald-800 mb-6 flex items-center gap-2"><span class="w-8 h-1 bg-emerald-500 rounded-full"></span>${category.category}</h3>`;
+                
+                const gridDiv = document.createElement('div');
+                gridDiv.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6";
+
+                category.items.forEach((item, iIndex) => {
+                    const itemDiv = document.createElement('div');
+                    const isGray = !item.available && !isEditing ? 'opacity-60 grayscale-[50%]' : '';
+                    itemDiv.className = `bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition-all hover:shadow-xl ${isGray}`;
+                    
+                    let contentHTML = '';
+                    
+                    if (isEditing) {
+                        contentHTML = `
+                            <div class="h-32 overflow-hidden relative"><img src="${item.img}" class="w-full h-full object-cover"></div>
+                            <div class="p-5 space-y-3">
+                                <input type="text" value="${item.name}" onchange="updateItem(${cIndex}, ${iIndex}, 'name', this.value)" class="w-full font-bold border-b border-gray-300 focus:border-emerald-500 outline-none p-1">
+                                <textarea onchange="updateItem(${cIndex}, ${iIndex}, 'desc', this.value)" class="w-full text-sm text-gray-500 border rounded p-1 outline-none" rows="2">${item.desc}</textarea>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex items-center gap-1">â¹ <input type="number" value="${item.price}" onchange="updateItem(${cIndex}, ${iIndex}, 'price', this.value)" class="w-16 font-bold text-emerald-600 border-b outline-none"></div>
+                                    <label class="flex items-center gap-2 text-sm font-medium cursor-pointer">
+                                        <input type="checkbox" ${item.available ? 'checked' : ''} onchange="updateItem(${cIndex}, ${iIndex}, 'available', this.checked)" class="w-4 h-4 accent-emerald-600"> In Stock
+                                    </label>
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        const stockOverlay = !item.available ? `<div class="absolute inset-0 bg-black/50 flex items-center justify-center"><span class="bg-red-500 text-white font-bold px-4 py-2 rounded-full transform -rotate-12">Out of Stock</span></div>` : '';
+                        
+                        let buttonArea = '';
+                        if (item.available) {
+                            if (cart[item.id]) {
+                                buttonArea = `
+                                    <div class="flex items-center gap-3 bg-emerald-50 border border-emerald-200 rounded-lg p-1 w-full justify-between px-4">
+                                        <button onclick="updateCart('${item.id}', -1)" class="p-1 text-emerald-700 hover:bg-emerald-200 rounded"><i class="fa-solid fa-minus"></i></button>
+                                        <span class="font-bold">${cart[item.id].quantity}</span>
+                                        <button onclick="updateCart('${item.id}', 1)" class="p-1 text-emerald-700 hover:bg-emerald-200 rounded"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                `;
+                            } else {
+                                buttonArea = `<button onclick="updateCart('${item.id}', 1)" class="w-full bg-white border-2 border-emerald-500 text-emerald-600 font-bold py-2 rounded-xl hover:bg-emerald-500 hover:text-white transition">Add to Order</button>`;
+                            }
+                        } else {
+                            buttonArea = `<div class="w-full bg-gray-100 text-gray-400 font-bold py-2 rounded-xl text-center">Unavailable</div>`;
+                        }
+
+                        contentHTML = `
+                            <div class="h-48 overflow-hidden relative"><img src="${item.img}" class="w-full h-full object-cover">${stockOverlay}</div>
+                            <div class="p-5">
+                                <div class="flex justify-between items-start mb-2"><h4 class="font-bold text-lg text-gray-800">${item.name}</h4><span class="font-extrabold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">â¹${item.price}</span></div>
+                                <p class="text-gray-500 text-sm mb-4 h-10 overflow-hidden">${item.desc}</p>
+                                <div class="mt-4">${buttonArea}</div>
+                            </div>
+                        `;
+                    }
+                    
+                    itemDiv.innerHTML = contentHTML;
+                    gridDiv.appendChild(itemDiv);
+                });
+                
+                catDiv.appendChild(gridDiv);
+                menuContainer.appendChild(catDiv);
+            });
+        }
+
+        // --- CART LOGIC ---
+        window.updateCart = function(itemId, delta) {
+            let item = null;
+            menuData.forEach(cat => cat.items.forEach(i => { if(i.id === itemId) item = i; }));
+            if (!item) return;
+
+            const currentQty = cart[itemId]?.quantity || 0;
+            const newQty = Math.max(0, currentQty + delta);
+            
+            if (newQty === 0) delete cart[itemId];
+            else cart[itemId] = { ...item, quantity: newQty };
+            
+            renderMenu(); // Re-render buttons
+            updateCartUI();
+        };
+
+        function updateCartUI() {
+            let total = 0;
+            let count = 0;
+            cartItemsContainer.innerHTML = '';
+            
+            const cartKeys = Object.keys(cart);
+            
+            if (cartKeys.length === 0) {
+                emptyCartMessage.classList.remove('hidden');
+                cartItemsContainer.classList.add('hidden');
+                cartTotalSection.classList.add('hidden');
+                cartCountBadge.classList.add('hidden');
+                
+                submitOrderBtn.disabled = true;
+                submitOrderBtn.className = "w-full py-4 rounded-xl text-lg font-bold flex items-center justify-center gap-2 transition-all shadow-none bg-gray-300 text-gray-500 cursor-not-allowed";
+            } else {
+                emptyCartMessage.classList.add('hidden');
+                cartItemsContainer.classList.remove('hidden');
+                cartTotalSection.classList.remove('hidden');
+                cartCountBadge.classList.remove('hidden');
+                
+                cartKeys.forEach(key => {
+                    const i = cart[key];
+                    total += (i.price * i.quantity);
+                    count += i.quantity;
+                    
+                    cartItemsContainer.innerHTML += `
+                        <div class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm border border-gray-100">
+                            <div><p class="font-semibold">${i.name}</p><p class="text-sm text-gray-500">â¹${i.price} x ${i.quantity}</p></div>
+                            <div class="font-bold text-gray-800">â¹${i.price * i.quantity}</div>
+                        </div>
+                    `;
+                });
+                
+                cartTotalAmount.innerText = `â¹${total}`;
+                cartCountBadge.innerText = count;
+                
+                submitOrderBtn.disabled = false;
+                submitOrderBtn.className = "w-full py-4 rounded-xl text-lg font-bold flex items-center justify-center gap-2 transition-all shadow-lg bg-[#25D366] hover:bg-[#1ebe5d] text-white hover:-translate-y-1";
+            }
+        }
+
+        // --- ORDER LOGIC ---
+        document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const address = document.getElementById('custAddress').value;
+            
+            let orderText = `*Hello Saras Poli Bhaji Kendra, I want to place an order:*\n\n*Customer Details:*\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\n\n*Order Summary:*\n`;
+            
+            let total = 0;
+            Object.values(cart).forEach(item => {
+                orderText += `- ${item.name} x ${item.quantity} = â¹${item.price * item.quantity}\n`;
+                total += (item.price * item.quantity);
+            });
+            
+            orderText += `\n*Total Amount: â¹${total}*\n\nThank you!`;
+            window.open(`https://wa.me/918108674763?text=${encodeURIComponent(orderText)}`, '_blank');
+        });
+
+        // --- ADMIN LOGIC ---
+        const adminModal = document.getElementById('adminModal');
+        const loginError = document.getElementById('loginError');
+        
+        document.getElementById('adminLoginTrigger').addEventListener('click', () => {
+            if(isAdmin) {
+                isAdmin = false; isEditing = false;
+                adminControls.classList.add('hidden');
+                adminBadge.classList.add('hidden');
+                renderMenu();
+            } else {
+                adminModal.classList.remove('hidden');
+            }
+        });
+        
+        document.getElementById('closeModalBtn').addEventListener('click', () => adminModal.classList.add('hidden'));
+
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const pwd = document.getElementById('adminPwd').value;
+            if(pwd === "SARASPOLIKENDRA2012") {
+                isAdmin = true;
+                adminModal.classList.add('hidden');
+                adminControls.classList.remove('hidden');
+                adminBadge.classList.remove('hidden');
+                document.getElementById('adminPwd').value = '';
+                loginError.classList.add('hidden');
+            } else {
+                loginError.classList.remove('hidden');
+            }
+        });
+
+        const editBtn = document.getElementById('editMenuBtn');
+        const saveBtn = document.getElementById('saveMenuBtn');
+
+        editBtn.addEventListener('click', () => {
+            isEditing = true;
+            editBtn.classList.add('hidden');
+            saveBtn.classList.remove('hidden');
+            saveBtn.style.display = 'flex';
+            renderMenu();
+        });
+
+        saveBtn.addEventListener('click', () => {
+            isEditing = false;
+            saveBtn.classList.add('hidden');
+            editBtn.classList.remove('hidden');
+            localStorage.setItem('sarasMenuHTML', JSON.stringify(menuData));
+            renderMenu();
+            alert("Menu saved successfully!");
+        });
+
+        window.updateItem = function(cIdx, iIdx, field, val) {
+            if(field === 'price') val = parseInt(val) || 0;
+            menuData[cIdx].items[iIdx][field] = val;
+        };
+    </script>
+</body>
+</html>
